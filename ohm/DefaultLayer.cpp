@@ -339,4 +339,29 @@ MapLayer ohm_API *addSecondarySamples(MapLayout &layout)
 
   return layer;
 }
+
+MapLayer *addSemanticLayer(MapLayout &layout)
+{
+  if (const MapLayer *layer = layout.layer(default_layer::semanticLayerName()))
+  {
+    // Already present.
+    // Oddities below as we can only retrieve const layers by name.
+    return layout.layerPtr(layer->layerIndex());
+  }
+
+  MapLayer *layer = layout.addLayer(default_layer::semanticLayerName());
+  VoxelLayout voxel = layer->voxelLayout();
+
+  voxel.addMember("label", DataType::kUInt16, 0);
+  voxel.addMember("second_label", DataType::kUInt16, 0);
+  voxel.addMember("label_prob", DataType::kFloat, 0);
+  if (layer->voxelByteSize() != sizeof(SemanticLabel))
+  {
+    throw std::runtime_error("SemanticLabel layer size mismatch");
+  }
+
+  return layer;
+}
+
+
 }  // namespace ohm
