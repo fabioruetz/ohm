@@ -154,6 +154,10 @@ public:
   /// @return The hit miss count layer index or -1 if not present.
   int hitMissCountLayer() const;
 
+  /// Cached index to the "semantic" layer.
+  /// @return The hit miss count layer index or -1 if not present.
+  int semanticLayer() const;
+
   /// Check if this @c MapLayout is equivalent to @p other.
   ///
   /// The layouts are may be equivalent if they share the same number of layers, the voxel patterns are the same

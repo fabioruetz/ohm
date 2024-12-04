@@ -24,6 +24,7 @@ struct ohm_API MapLayoutDetail
   int clearance_layer = -1;
   int intensity_layer = -1;
   int hit_miss_count_layer = -1;
+  int semantic_layer = -1;
 
   inline ~MapLayoutDetail() { clear(); }
 

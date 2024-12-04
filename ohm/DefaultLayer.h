@@ -45,6 +45,9 @@ const char ohm_API *tsdfLayerName();
 /// Name of the layer relating to information on secondary samples (lidar dual returns) falling in a voxel.
 /// @return "secondary_samples"
 const char ohm_API *secondarySamplesLayerName();
+/// Name of the layer relating to information on semantic samples of a voxel.
+/// @return "semantic"
+const char ohm_API *semanticLayerName();
 }  // namespace default_layer
 
 class MapLayout;
@@ -162,6 +165,17 @@ MapLayer ohm_API *addTsdf(MapLayout &layout);
 /// @param layout The @p MapLayout to modify.
 /// @return The map layer added or the pre-existing layer named according to @c secondarySamplesLayerName() .
 MapLayer ohm_API *addSecondarySamples(MapLayout &layout);
+
+
+/// Add the semantic voxel layer to @p layout.
+///
+/// Similar to @c addVoxelMean(), this function adds a @c SemanticVoxel layer using the
+/// @c semanticLayerName() . This layer can be used to collect probalistic information about semantic labels.
+///
+/// @param layout The @p MapLayout to modify.
+/// @return The map layer added or the pre-existing layer named according to @c semanticLayerName() .
+MapLayer ohm_API *addSemanticLayer(MapLayout &layout);
+
 }  // namespace ohm
 
 #endif  // OHMDEFAULTLAYER_H

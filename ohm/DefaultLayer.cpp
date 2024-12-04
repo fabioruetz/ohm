@@ -9,6 +9,7 @@
 #include "MapLayout.h"
 #include "VoxelMean.h"
 #include "VoxelSecondarySample.h"
+#include "VoxelSemanticLabel.h"
 #include "VoxelTsdf.h"
 
 #include <algorithm>
@@ -69,6 +70,10 @@ const char *tsdfLayerName()
 const char *secondarySamplesLayerName()
 {
   return "secondary_samples";
+}
+const char *semanticLayerName()
+{
+  return "semantic";
 }
 }  // namespace default_layer
 

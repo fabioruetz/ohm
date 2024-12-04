@@ -152,6 +152,7 @@ set(SOURCES
   VoxelOccupancy.h
   VoxelOccupancyCompute.h
   VoxelSecondarySample.h
+  VoxelSemanticLabel.h
   VoxelTouchTime.h
   VoxelTouchTimeCompute.h
   VoxelTsdf.cpp
@@ -231,6 +232,7 @@ set(PUBLIC_HEADERS
   VoxelOccupancy.h
   VoxelOccupancyCompute.h
   VoxelSecondarySample.h
+  VoxelSemanticLabel.h
   VoxelTouchTime.h
   VoxelTouchTimeCompute.h
   VoxelTsdf.h

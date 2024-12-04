@@ -132,6 +132,11 @@ int MapLayout::hitMissCountLayer() const
   return imp_->hit_miss_count_layer;
 }
 
+int MapLayout::semanticLayer() const
+{
+  return imp_->semantic_layer;
+}
+
 
 MapLayoutMatch MapLayout::checkEquivalent(const MapLayout &other) const
 {
@@ -272,6 +277,10 @@ void MapLayout::cacheLayerIndex(const MapLayer *layer)
     {
       imp_->hit_miss_count_layer = layer->layerIndex();
     }
+    else if (imp_->semantic_layer == -1 && name_str == default_layer::semanticLayerName())
+    {
+      imp_->semantic_layer = layer->layerIndex();
+    }
   }
 }
 
@@ -285,6 +294,7 @@ void MapLayout::cacheLayerIndices()
   imp_->clearance_layer = -1;
   imp_->intensity_layer = -1;
   imp_->hit_miss_count_layer = -1;
+  imp_->semantic_layer = -1;
   for (MapLayer *layer : imp_->layers)
   {
     cacheLayerIndex(layer);
